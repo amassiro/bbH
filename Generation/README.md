@@ -44,7 +44,22 @@ Where:
 Prepare LHE file:
 
     cmsDriver.py MCDBtoEDM --conditions START53_V19::All -s NONE --eventcontent RAWSIM --datatier GEN --filein file:LHE/bbH_LO.lhe --fileout /tmp/amassiro/prova.root -n -1
-    cmsDriver.py MCDBtoEDM --conditions START53_V19::All -s NONE --eventcontent RAWSIM --datatier GEN --filein file:LHE/bbH_LO.lhe --fileout /tmp/amassiro/prova2.root -n -1
+
+
+Run:
+
+    cmsRun GENSIM_bbh_H_WW_lnulnu_withTau_8TeV.py
+    cmsRun GENSIM_bbh_GG_8TeV.py
+
+
+Decay & hadronize: lxbatch
+=======
+
+
+
+Backup
+=======
+
 
 Run GEN-SIM:
 NB: the decay python config file should be in a dedicated folder, otherwise errors!
@@ -71,21 +86,9 @@ NB: the decay python config file should be in a dedicated folder, otherwise erro
 For some reasons it's not copying the fragment where it should!
 Hardcoded python for generation.
 
-and run:
-
-    cmsRun GENSIM_bbh_H_WW_lnulnu_withTau_8TeV.py
-    cmsRun GENSIM_bbh_GG_8TeV.py
-
-
-Decay & hadronize: lxbatch
-=======
-
-
-
-Backup
-=======
 
 Old instructions:
+
 
     cmsDriver.py POWHEG_PYTHIA6_Tauola_H_WW_lnulnu_withTau_8TeV_cff.py  \
                --filein file:/tmp/amassiro/prova.root     \
