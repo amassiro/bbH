@@ -46,10 +46,10 @@ Prepare LHE file:
     cmsDriver.py MCDBtoEDM --conditions START53_V19::All -s NONE --eventcontent RAWSIM --datatier GEN --filein file:LHE/bbH_LO.lhe --fileout /tmp/amassiro/prova.root -n -1
 
 
-Run:
+Run (from CMSSW folder):
 
-    cmsRun GENSIM_bbh_H_WW_lnulnu_withTau_8TeV.py
-    cmsRun GENSIM_bbh_GG_8TeV.py
+    cmsRun GENSIM_bbh_H_WW_lnulnu_withTau_8TeV.py   inputFiles=file:in.root       outputFile=out.root
+    cmsRun GENSIM_bbh_GG_8TeV.py                    inputFiles=file:in.root       outputFile=out.root
 
 
 Decay & hadronize: lxbatch
