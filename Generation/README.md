@@ -40,9 +40,9 @@ Where:
 
     new for GENSIM
     /home/amassiro/Generation/CMSSW_5_3_14_patch2/src/
-    
+
 Prepare LHE file:
-       
+
     cmsDriver.py MCDBtoEDM --conditions START53_V19::All -s NONE --eventcontent RAWSIM --datatier GEN --filein file:LHE/bbH_LO.lhe --fileout /tmp/amassiro/prova.root -n -1
     cmsDriver.py MCDBtoEDM --conditions START53_V19::All -s NONE --eventcontent RAWSIM --datatier GEN --filein file:LHE/bbH_LO.lhe --fileout /tmp/amassiro/prova2.root -n -1
 
@@ -50,7 +50,7 @@ Run GEN-SIM:
 NB: the decay python config file should be in a dedicated folder, otherwise errors!
 
     scram b
-    
+
     cmsDriver.py Configuration/GenProduction/python/EightTeV/POWHEG_PYTHIA6_Tauola_H_WW_lnulnu_withTau_8TeV_cff.py   --step GEN,SIM   \
            --beamspot Realistic8TeVCollision    \
            --pileup NoPileUp         --datamix NODATAMIXER        --eventcontent RAWSIM    \
@@ -74,10 +74,19 @@ Hardcoded python for generation.
 and run:
 
     cmsRun GENSIM_bbh_H_WW_lnulnu_withTau_8TeV.py
+    cmsRun GENSIM_bbh_GG_8TeV.py
 
-    
-    
-    
+
+Decay & hadronize: lxbatch
+=======
+
+
+
+Backup
+=======
+
+Old instructions:
+
     cmsDriver.py POWHEG_PYTHIA6_Tauola_H_WW_lnulnu_withTau_8TeV_cff.py  \
                --filein file:/tmp/amassiro/prova.root     \
                --fileout file:HIG-Summer12-01308.root \
@@ -98,26 +107,26 @@ and run:
     
     
     
-cmsRun PYTHIA6_Tauola_SM_H_gluglu_wh_zh_tth_mH125_8TeV_cff_py_GEN_SIM.py
+    cmsRun PYTHIA6_Tauola_SM_H_gluglu_wh_zh_tth_mH125_8TeV_cff_py_GEN_SIM.py
 
-cmsRun ~/public/CMSSW/DrawTree.py inputFiles=file:PYTHIA6_Tauola_SM_H_gluglu_wh_zh_tth_mH125_8TeV_cff_py_GEN_SIM.root
-
-
+    cmsRun ~/public/CMSSW/DrawTree.py inputFiles=file:PYTHIA6_Tauola_SM_H_gluglu_wh_zh_tth_mH125_8TeV_cff_py_GEN_SIM.root
 
 
-cmsDriver.py Configuration/Generator/python/PYTHIA6_Tauola_SM_H_gluglu_wh_zh_tth_mH125_8TeV_cff.py \
-   --step GEN,SIM --beamspot Realistic8TeVCollision \
-   --conditions START53_V7C::All \
-   --pileup NoPileUp \
-   --datamix NODATAMIXER \
-   --eventcontent RAWSIM \
-   --datatier GEN-SIM \
-   -n 200000 \
-   --no_exec
 
-cmsRun PYTHIA6_Tauola_SM_H_gluglu_wh_zh_tth_mH125_8TeV_cff_py_GEN_SIM.py
 
-cmsRun ~/public/CMSSW/DrawTree.py inputFiles=file:PYTHIA6_Tauola_SM_H_gluglu_wh_zh_tth_mH125_8TeV_cff_py_GEN_SIM.root
+    cmsDriver.py Configuration/Generator/python/PYTHIA6_Tauola_SM_H_gluglu_wh_zh_tth_mH125_8TeV_cff.py \
+       --step GEN,SIM --beamspot Realistic8TeVCollision \
+       --conditions START53_V7C::All \
+       --pileup NoPileUp \
+       --datamix NODATAMIXER \
+       --eventcontent RAWSIM \
+       --datatier GEN-SIM \
+       -n 200000 \
+       --no_exec
+
+    cmsRun PYTHIA6_Tauola_SM_H_gluglu_wh_zh_tth_mH125_8TeV_cff_py_GEN_SIM.py
+
+    cmsRun ~/public/CMSSW/DrawTree.py inputFiles=file:PYTHIA6_Tauola_SM_H_gluglu_wh_zh_tth_mH125_8TeV_cff_py_GEN_SIM.root
 
 
 
