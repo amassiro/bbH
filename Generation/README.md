@@ -49,7 +49,7 @@ Prepare LHE file:
 Run (from CMSSW folder):
 
     cmsRun GENSIM_bbh_H_WW_lnulnu_withTau_8TeV.py   inputFiles=file:in.root       outputFile=out.root
-    cmsRun GENSIM_bbh_GG_8TeV.py                    inputFiles=file:in.root       outputFile=out.root
+    cmsRun GENSIM_bbh_H_GG_8TeV.py                  inputFiles=file:in.root       outputFile=out.root
 
 
 Decay & hadronize: lxbatch
