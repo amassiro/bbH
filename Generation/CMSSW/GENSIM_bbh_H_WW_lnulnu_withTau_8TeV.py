@@ -5,6 +5,14 @@
 # with command line options: Configuration/GenProduction/python/EightTeV/POWHEG_PYTHIA6_Tauola_H_WW_lnulnu_withTau_8TeV_cff.py --filein file:/tmp/amassiro/prova.root --fileout /tmp/amassiro/provaGENSIM.root --mc --eventcontent RAWSIM --datatier GEN-SIM --conditions START53_V7C::All --beamspot Realistic8TeVCollision --step GEN,SIM
 import FWCore.ParameterSet.Config as cms
 
+
+from FWCore.ParameterSet.VarParsing import VarParsing
+options = VarParsing ('analysis')
+# add a list of strings for events to process
+options.parseArguments()
+
+
+
 process = cms.Process('SIM')
 
 # import of standard configurations
@@ -30,9 +38,9 @@ process.maxEvents = cms.untracked.PSet(
 # Input source
 process.source = cms.Source("PoolSource",
     secondaryFileNames = cms.untracked.vstring(),
-    #fileNames = cms.untracked.vstring('file:/tmp/amassiro/prova.root')
-    fileNames = cms.untracked.vstring('file:/tmp/amassiro/prova_bbH_unweighted.root')
+    fileNames = cms.untracked.vstring (options.inputFiles),
 )
+
 
 process.options = cms.untracked.PSet(
 
