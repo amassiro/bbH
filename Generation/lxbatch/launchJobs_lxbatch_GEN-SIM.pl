@@ -77,8 +77,8 @@ while (<LISTOFSamples>)
     
     print("Sample: ".$sample1."\n") ;  
 
-    system ("rm -r ".$sample1."\n") ;
-    system ("mkdir ".$sample1."\n") ;
+    system ("rm -r ".$sample1."_tmp \n") ;
+    system ("mkdir ".$sample1."_tmp \n") ;
    
   
     $LISTOFFiles = "./list_".$sample1.".txt" ;
@@ -103,10 +103,6 @@ while (<LISTOFSamples>)
     print "NumberOfJobs = ".$jobNumber."\n";
     
   
-  
-  
-  
-  
     ################
     # loop over jobs 
     ################
@@ -116,7 +112,7 @@ while (<LISTOFSamples>)
 	$currDir = `pwd` ;
 	chomp ($currDir) ;
     
-	$jobDir = $currDir."/".$sample1."/JOB_".$jobIt ;
+	$jobDir = $currDir."/".$sample1."_tmp/JOB_".$jobIt ;
 	system ("mkdir ".$jobDir." \n") ;
     
 	$tempBjob = $jobDir."/bjob_".$jobIt.".sh" ;
