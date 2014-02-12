@@ -55,7 +55,65 @@ Run (from CMSSW folder):
 Decay & hadronize: lxbatch
 =======
 
+1) Split the LHE file:
 
+   - Compile splitLHEfile.cpp: 
+   
+     c++ -o splitLHEfile splitLHEfile.cpp 
+
+   - Run splitLHEfile.cpp:
+     
+     ./splitLHEfile fileToSplit.lhe events_per_file output_file
+
+   each name need the format: name_#.lhe
+
+2) Prepare the jobs to launch on lxbatch:
+
+   perl launchJobs_lxbatch_GEN-SIM.pl params_lxbatch.CFG
+   
+   params_lxbatch.CFG has the following input parameters:
+   
+   - BASEDir: complete path of this lxbatch directory, eg:   
+     
+     /afs/cern.ch/work/b/bmarzocc/GenerationMC/CMSSW_5_3_14_patch2/src/bbH/Generation/lxbatch/
+   
+   - JOBCfgTemplate: complete path of the cfg file to run with cmsRun, eg:
+                
+     /afs/cern.ch/work/b/bmarzocc/GenerationMC/CMSSW_5_3_14_patch2/src/bbH/Generation/CMSSW/GENSIM_bbh_H_GG_8TeV.py
+
+   - LISTOFSamples: txt file of the list of directories that contain the split LHE files, eg of path into the txt:
+     
+     /afs/cern.ch/work/b/bmarzocc/GenerationMC/CMSSW_5_3_14_patch2/src/bbH/Generation/lxbatch LHE_split
+
+     where the directory path and the directpry (LHE_split) have to be separated by a spacetab
+     
+   - LHEname: name of the split LHE files, they need to have the same name (no format or lhe number specified), eg:
+     
+     unweighted_events_0.lhe -> LHEname = unweighted_events
+
+   - HEPMCoutput: directory where to put the hepmc root files, eg:
+     
+     /tmp/bmarzocc/
+
+   - OUTPUTSAVEPath: directory where to save the output files (also a eos directpry), eg:
+     
+     /store/caf/user/bmarzocc/bbHtoGG_GEN-SIM/
+
+   - OUTPUTFILEName: name of a single job output root file, eg:
+     
+     bbHGG_gensim
+
+   - JOBModulo: numeber of split lhe read per job. 
+     NB: LEAVE IT ALWAYS AT 1 !!
+   
+   - EXEName: name of the executable in the JOB directory. 
+     NB: SAME NAME AS JOBCfgTemplate, ie: GENSIM_bbh_H_GG_8TeV.py
+   
+   - QUEUE: name of the queue where launch the jobs to, eg: 1nd
+   
+3) Launch the jobs:
+
+   sh lancia.sh
 
 Backup
 =======
