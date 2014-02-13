@@ -71,7 +71,7 @@ Decay & hadronize: lxbatch
 
    perl launchJobs_lxbatch_GEN-SIM.pl params_lxbatch.CFG
    
-   params_lxbatch.CFG has the following input parameters:
+   params_lxbatch_GEN-SIM.CFG has the following input parameters:
    
    - BASEDir: complete path of this lxbatch directory, eg:   
      
