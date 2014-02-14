@@ -30,7 +30,7 @@ process.maxEvents = cms.untracked.PSet(
 # Input source
 process.source = cms.Source("PoolSource",
     secondaryFileNames = cms.untracked.vstring(),
-    duplicateCheckMode  = cms.untracked.string('noDuplicateCheck'),
+    #duplicateCheckMode  = cms.untracked.string('noDuplicateCheck'),
     fileNames = cms.untracked.vstring([LISTOFFILES])
 )
 
