@@ -10,7 +10,7 @@ Decay & hadronize: GEN-SIM step lxbatch
         perl launchJobs_lxbatch_GEN-SIM.pl params_lxbatch_GEN-SIM.CFG
         perl launchJobs_lxbatch_GEN-SIM.pl params_lxbatch_GEN-SIM_hww.CFG
 
-        params_lxbatch_GEN-SIM.CFG has the following input parameters:
+    params_lxbatch_GEN-SIM.CFG has the following input parameters:
 
    - BASEDir: complete path of this lxbatch directory, eg:
 
@@ -19,6 +19,7 @@ Decay & hadronize: GEN-SIM step lxbatch
    - JOBCfgTemplate: cfg file to run with cmsRun, USE THE TEMPLATE:
 
                 GENSIM_bbh_H_GG_8TeV_template.py
+                GENSIM_bbh_H_WW_lnulnu_withTau_8TeV_template.py
 
    - HEPMinput: hepmc root files complete path, PUT IT IN A public OR /tmp/, eg:
 
