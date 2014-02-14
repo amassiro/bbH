@@ -14,23 +14,23 @@ Decay & hadronize: GEN-SIM step lxbatch
 
    - BASEDir: complete path of this lxbatch directory, eg:
 
-            /afs/cern.ch/work/b/bmarzocc/GenerationMC/CMSSW_5_3_14_patch2/src/bbH/Generation/lxbatch/
+                /afs/cern.ch/work/b/bmarzocc/GenerationMC/CMSSW_5_3_14_patch2/src/bbH/Generation/lxbatch/
 
    - JOBCfgTemplate: cfg file to run with cmsRun, USE THE TEMPLATE:
 
-            GENSIM_bbh_H_GG_8TeV_template.py
+                GENSIM_bbh_H_GG_8TeV_template.py
 
    - HEPMinput: hepmc root files complete path, PUT IT IN A public OR /tmp/, eg:
 
-            /afs/cern.ch/work/b/bmarzocc/public/bbH_GG_HEPMC.root
+                /afs/cern.ch/work/b/bmarzocc/public/bbH_GG_HEPMC.root
 
    - OUTPUTSAVEPath: directory where to save the output files (also a eos directory), eg:
 
-            /store/caf/user/bmarzocc/bbHtoGG_GEN-SIM/
+                /store/caf/user/bmarzocc/bbHtoGG_GEN-SIM/
 
    - OUTPUTFILEName: name of a single job output root file, eg:
 
-            bbHGG_GEN-SIM
+                bbHGG_GEN-SIM
 
    - EVENTSNumber: total number of events to analyze
 
@@ -40,7 +40,7 @@ Decay & hadronize: GEN-SIM step lxbatch
 
    - QUEUE: name of the queue where launch the jobs to, eg: 1nd
 
-1. Launch the jobs:
+1. Launch the jobs (file lancia.sh automatically created):
 
         sh lancia.sh
 
