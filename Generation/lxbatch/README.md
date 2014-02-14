@@ -58,13 +58,13 @@ Decay & hadronize: DIGI step lxbatch
 
    - BASEDir: complete path of this lxbatch directory, eg:
 
-     /afs/cern.ch/work/b/bmarzocc/GenerationMC/CMSSW_5_3_14_patch2/src/bbH/Generation/lxbatch/
+                /afs/cern.ch/work/b/bmarzocc/GenerationMC/CMSSW_5_3_14_patch2/src/bbH/Generation/lxbatch/
 
    - JOBCfgTemplate: path of the cfg file to run with cmsRun, USE THE TEMPLATE:
 
                 DIGI_template_cfg.py
 
-   - LISTOFSamples: txt file of the list of directories that contain the GEN-SIM root files, eg of path into the txt (in the format using options from previous step "OUTPUTSAVEPath" "OUTPUTFILEName") :
+   - LISTOFSamples: txt file of the list of directories that contain the GEN-SIM root files, eg of path into the txt (in the format using options from previous step "OUTPUTSAVEPath", with the last folder split) :
 
                 /store/caf/user/bmarzocc bbHtoGG_GEN-SIM
 
@@ -91,16 +91,16 @@ Decay & hadronize: DIGI step lxbatch
 Decay & hadronize: AODSIM step lxbatch
 =======
 
-1) Prepare the jobs to launch on lxbatch:
+1. Prepare the jobs to launch on lxbatch:
 
-   perl launchJobs_lxbatch_AODSIM.pl params_lxbatch_AODSIM.CFG
-   
+        perl launchJobs_lxbatch_AODSIM.pl params_lxbatch_AODSIM.CFG
+
    params_lxbatch_AODSIM.CFG has the following input parameters:
-   
+
    - BASEDir: complete path of this lxbatch directory, eg:   
-     
-     /afs/cern.ch/work/b/bmarzocc/GenerationMC/CMSSW_5_3_14_patch2/src/bbH/Generation/lxbatch/
-   
+
+                /afs/cern.ch/work/b/bmarzocc/GenerationMC/CMSSW_5_3_14_patch2/src/bbH/Generation/lxbatch/
+
    - JOBCfgTemplate: path of the cfg file to run with cmsRun, USE THE TEMPLATE:
                 
      AODSIM_template_cfg.py
