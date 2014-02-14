@@ -23,29 +23,27 @@ while (<USERCONFIG>)
     $User_Preferences{$var} = $value;
 }
 
-$BASEDir          = $User_Preferences{"BASEDir"};
-$LISTOFSamples    = $User_Preferences{"LISTOFSamples"} ;
+$BASEDir          = $User_Preferences{"BASEDir"} ;
 $EXEName          = $User_Preferences{"EXEName"} ;
 $JOBCfgTemplate   = $User_Preferences{"JOBCfgTemplate"} ;
 $OUTPUTSAVEPath   = $User_Preferences{"OUTPUTSAVEPath"} ;
 $OUTPUTFILEName   = $User_Preferences{"OUTPUTFILEName"} ;
-$JOBModulo        = $User_Preferences{"JOBModulo"} ;
-$LHEname          = $User_Preferences{"LHEname"};
-$HEPMCoutput      = $User_Preferences{"HEPMCoutput"};
+$EVENTSNumber     = $User_Preferences{"EVENTSNumber"} ;
+$EVENTSPerjob     = $User_Preferences{"EVENTSPerjob"} ;
+$HEPMCinput       = $User_Preferences{"HEPMCinput"};
 $QUEUE            = $User_Preferences{"QUEUE"};
 
 
 
 
 print "BASEDir = "          .$BASEDir."\n" ;
-print "LISTOFSamples = "    .$LISTOFSamples."\n" ;
 print "EXEName = "          .$EXEName."\n" ;
 print "JOBCfgTemplate = "   .$JOBCfgTemplate."\n" ;
 print "OUTPUTSAVEPath = "   .$OUTPUTSAVEPath."\n" ;
 print "OUTPUTFILEName = "   .$OUTPUTFILEName."\n" ;
-print "JOBModulo = "        .$JOBModulo."\n" ;
-print "LHEname = "          .$LHEname."\n" ;
-print "HEPMCoutput = "      .$HEPMCoutput."\n" ;
+print "EVENTSNumber = "     .$EVENTSNumber."\n" ;
+print "EVENTSPerjob = "     .$EVENTSPerjob."\n" ;
+print "HEPMCinput = "       .$HEPMCinput."\n" ;
 print "QUEUE  = "           .$QUEUE."\n\n" ;
 
 
@@ -59,43 +57,17 @@ open(SAMPLEJOBLISTFILE, ">", $sampleJobListFile);
 #####################################################
 # PG prepare the array containing the root files list
 #####################################################
-
-
-open (LISTOFSamples,$LISTOFSamples) ;
-while (<LISTOFSamples>)
 {
-    system("cd ".$BASEDir."\n");
-    
-    chomp($_);
-    
-    ($INPUTSAVEPath,$sample1) = split(" ") ;
-    $subsample = substr($sample,0,1);
-    if($subsample eq "#")
-    {
-	next;
-    }
-    
-    print("Sample: ".$sample1."\n") ;  
+    print("Sample: JOBS_dir \n") ;  
 
-    system ("rm -r ".$sample1."_tmp \n") ;
-    system ("mkdir ".$sample1."_tmp \n") ;
+    system ("rm -r JOBS_dir \n") ;
+    system ("mkdir JOBS_dir \n") ;
    
-  
-    $LISTOFFiles = "./list_".$sample1.".txt" ;
-    system ("cmsLs -R ".$INPUTSAVEPath."/".$sample1." | grep lhe | awk '{print \$5}' > ".$LISTOFFiles."\n") ;
 
-  
-    $totNumber = 0;
     $jobNumber = 0;
   
-    open (LISTOFFiles,$LISTOFFiles) ;
-    while (<LISTOFFiles>)
-    {
-	++$totNumber;
-    }
-
-    $jobNumber = int($totNumber/$JOBModulo);
-    if( $totNumber%$JOBModulo != 0)
+    $jobNumber = int($EVENTSNumber/$EVENTSPerjob);
+    if( $EVENTSNumber%$EVENTSPerjob != 0)
     {
 	$jobNumber = $jobNumber+1;
     }
@@ -111,8 +83,15 @@ while (<LISTOFSamples>)
     { 
 	$currDir = `pwd` ;
 	chomp ($currDir) ;
+
+        $FIRSTEVENT = 1 + ($jobIt-1)*$EVENTSPerjob;
+
+        if( $jobIt == $jobNumber)
+        {
+	    $EVENTSPerjob = $EVENTSNumber - $FIRSTEVENT + 1;
+        }
     
-	$jobDir = $currDir."/".$sample1."_tmp/JOB_".$jobIt ;
+	$jobDir = $currDir."/JOBS_dir/JOB_".$jobIt ;
 	system ("mkdir ".$jobDir." \n") ;
     
 	$tempBjob = $jobDir."/bjob_".$jobIt.".sh" ;
@@ -121,14 +100,17 @@ while (<LISTOFSamples>)
 	$command = "chmod 777 ".$tempBjob ;
 	system ($command) ;
 
-        #print "LHE file = " .$INPUTSAVEPath."".$sample1."/".$LHEname."_".($jobIt-1).".lhe\n";
-        
-        $tempLHE = $INPUTSAVEPath."".$sample1."/".$LHEname."_".($jobIt-1).".lhe";
-        $command = "cp -r ".$tempLHE." ".$jobDir ;
-        system ($command) ;
+        $tempo1 = "./tempo1" ;
+	system ("cat ".$JOBCfgTemplate."   | sed -e s%NUMBEREVENTS%".$EVENTSPerjob.
+		                       "%g > ".$tempo1) ;
 
-        $command = "cp -r ".$JOBCfgTemplate." ".$jobDir ;
-        system ($command) ;
+        $tempo2 = "./tempo2" ;
+	system ("cat ".$tempo1."   | sed -e s%FIRSTEVENT%".$FIRSTEVENT.
+		                       "%g > ".$tempo2) ;
+        
+        $JOBCfgFile = $jobDir."/".$EXEName ;
+	system ("mv ".$tempo2." ".$JOBCfgFile) ;
+	
      
         
     ######################
@@ -155,10 +137,8 @@ while (<LISTOFSamples>)
 	$command = "cmsMkdir ".$OUTPUTSAVEPath.$sample1;
 	print SAMPLEJOBFILE $command."\n";
 
-        $command = "cmsDriver.py MCDBtoEDM --conditions START53_V19::All -s NONE --eventcontent RAWSIM --datatier GEN --filein file:".$tempLHE." --fileout ".$HEPMCoutput."".$LHEname."_".($jobIt-1).".root -n -1" ;
-        print SAMPLEJOBFILE $command."\n";
 
-	$command = "cmsRun ".$jobDir."/".$EXEName." inputFiles=file:".$HEPMCoutput."".$LHEname."_".($jobIt-1).".root outputFile=".$OUTPUTFILEName."_".$jobIt.".root" ;
+	$command = "cmsRun ".$jobDir."/".$EXEName." inputFiles=file:".$HEPMCinput." outputFile=".$OUTPUTFILEName."_".$jobIt.".root" ;
 	print SAMPLEJOBFILE $command."\n";
 
 	$command = "cmsStage ".$OUTPUTFILEName."_".$jobIt.".root ".$OUTPUTSAVEPath.$sample1;
@@ -174,5 +154,4 @@ while (<LISTOFSamples>)
     
     }
 
-    system ("rm ".$LISTOFFiles) ;
 }  
