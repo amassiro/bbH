@@ -58,14 +58,14 @@ Decay & hadronize: GEN-SIM step lxbatch
 
 1) Prepare the jobs to launch on lxbatch:
 
-   perl launchJobs_lxbatch_GEN-SIM.pl params_lxbatch_GEN-SIM.CFG
-   
-   params_lxbatch_GEN-SIM.CFG has the following input parameters:
-   
-   - BASEDir: complete path of this lxbatch directory, eg:   
-     
-     /afs/cern.ch/work/b/bmarzocc/GenerationMC/CMSSW_5_3_14_patch2/src/bbH/Generation/lxbatch/
-   
+    perl launchJobs_lxbatch_GEN-SIM.pl params_lxbatch_GEN-SIM.CFG
+
+    params_lxbatch_GEN-SIM.CFG has the following input parameters:
+
+   - BASEDir: complete path of this lxbatch directory, eg:
+
+        /afs/cern.ch/work/b/bmarzocc/GenerationMC/CMSSW_5_3_14_patch2/src/bbH/Generation/lxbatch/
+
    - JOBCfgTemplate: cfg file to run with cmsRun, USE THE TEMPLATE:
                 
      GENSIM_bbh_H_GG_8TeV_template.py
