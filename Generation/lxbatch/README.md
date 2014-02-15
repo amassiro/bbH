@@ -102,15 +102,15 @@ Decay & hadronize: AODSIM step lxbatch
                 /afs/cern.ch/work/b/bmarzocc/GenerationMC/CMSSW_5_3_14_patch2/src/bbH/Generation/lxbatch/
 
    - JOBCfgTemplate: path of the cfg file to run with cmsRun, USE THE TEMPLATE:
-                
-     AODSIM_template_cfg.py
+
+                AODSIM_template_cfg.py
 
    - LISTOFSamples: txt file of the list of directories that contain the DIGI root files, eg of path into the txt:
-     
-     /store/caf/user/bmarzocc/bbHtoGG_DIGI bbHtoGG_GEN-SIM
+
+                /store/caf/user/bmarzocc/bbHtoGG_DIGI bbHtoGG_GEN-SIM
 
      where the directory path and the directory have to be separated by a spacetab
-     
+
    - OUTPUTSAVEPath: directory where to save the output files (also a eos directory), eg:
      
      /store/caf/user/bmarzocc/bbHtoGG_AODSIM/
