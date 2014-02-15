@@ -30,7 +30,7 @@ $JOBCfgTemplate   = $User_Preferences{"JOBCfgTemplate"} ;
 $OUTPUTSAVEPath   = $User_Preferences{"OUTPUTSAVEPath"} ;
 $OUTPUTFILEName   = $User_Preferences{"OUTPUTFILEName"} ;
 $JOBModulo        = $User_Preferences{"JOBModulo"} ;
-
+$QUEUE            = $User_Preferences{"QUEUE"};
 
 
 print "BASEDir = "          .$BASEDir."\n" ;
@@ -40,6 +40,7 @@ print "JOBCfgTemplate = "   .$JOBCfgTemplate."\n" ;
 print "OUTPUTSAVEPath = "   .$OUTPUTSAVEPath."\n" ;
 print "OUTPUTFILEName = "   .$OUTPUTFILEName."\n" ;
 print "JOBModulo = "        .$JOBModulo."\n\n" ;
+print "QUEUE  = "           .$QUEUE."\n\n" ;
 
 
 
