@@ -199,13 +199,13 @@ while (<LISTOFSamples>)
 	print SAMPLEJOBFILE $command."\n";
 
 
-	$command = "cmsMkdir ".$OUTPUTSAVEPath.$sample1;
+	$command = "cmsMkdir ".$OUTPUTSAVEPath;
 	print SAMPLEJOBFILE $command."\n";
 
 	$command = "cmsRun ".$JOBCfgFile ;
 	print SAMPLEJOBFILE $command."\n";
 
-	$command = "cmsStage ".$OUTPUTFILEName."_".$jobIt.".root ".$OUTPUTSAVEPath.$sample1;
+	$command = "cmsStage ".$OUTPUTFILEName."_".$jobIt.".root ".$OUTPUTSAVEPath;
 	print SAMPLEJOBFILE $command."\n";
 
 	
