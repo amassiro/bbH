@@ -212,7 +212,7 @@ while (<LISTOFSamples>)
 	# submit job
 	############
 	
-	$command = "bsub -cwd ".$jobDir." -q cmscaf1nd ".$tempBjob."\n" ;  
+    $command = "bsub -cwd ".$jobDir." -q ".$QUEUE." ".$tempBjob."\n" ;  
 	print SAMPLEJOBLISTFILE $command."\n";
     
     }

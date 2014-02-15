@@ -94,6 +94,7 @@ Decay & hadronize: AODSIM step lxbatch
 1. Prepare the jobs to launch on lxbatch:
 
         perl launchJobs_lxbatch_AODSIM.pl params_lxbatch_AODSIM.CFG
+        perl launchJobs_lxbatch_AODSIM.pl params_lxbatch_AODSIM_hww.CFG
 
    params_lxbatch_AODSIM.CFG has the following input parameters:
 
