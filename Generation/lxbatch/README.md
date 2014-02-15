@@ -112,18 +112,20 @@ Decay & hadronize: AODSIM step lxbatch
      where the directory path and the directory have to be separated by a spacetab
 
    - OUTPUTSAVEPath: directory where to save the output files (also a eos directory), eg:
-     
-     /store/caf/user/bmarzocc/bbHtoGG_AODSIM/
+
+                /store/caf/user/bmarzocc/bbHtoGG_AODSIM/
 
    - OUTPUTFILEName: name of a single job output root file, eg:
-     
-     bbHGG_AODSIM
-   
+
+                bbHGG_AODSIM
+
    - EXEName: name of the executable in the JOB directory.
 
    - JOBModulo: numeber of split lhe read per job. 
-     
-   
-2) Launch the jobs:
 
-   sh lancia.sh
+
+2. Launch the jobs:
+
+        sh lancia.sh
+
+
