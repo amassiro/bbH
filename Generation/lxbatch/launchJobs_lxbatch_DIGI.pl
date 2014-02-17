@@ -166,10 +166,13 @@ while (<LISTOFSamples>)
 
 	$tempo3 = "./tempo3" ;
 	system ("cat ".$tempo2." | sed -e s%APICE%\\'%g > ".$tempo3) ;
+
+        $tempo4 = "./tempo4" ;
+	system ("cat ".$tempo3." | sed -e s%YOURSEED%".$jobIt."%g > ".$tempo4) ;
     
     
 	$JOBCfgFile = $jobDir."/".$EXEName ;
-	system ("mv ".$tempo3." ".$JOBCfgFile) ;
+	system ("mv ".$tempo4." ".$JOBCfgFile) ;
 	system ("rm ./tempo*") ;
     
     
