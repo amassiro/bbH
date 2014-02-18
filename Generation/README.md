@@ -12,15 +12,22 @@ Process:
 
 [QCD] to have NLO
 
-    output MY_BBH_DIR
+    output MY_BBH_DIR_NLO
     output MY_BBH_DIR_LO
 
 It compiles the code!
 
 Then modify the card to have the correct center of mass energy
 
-    MY_BBH_DIR/Cards/run_card.dat
+    MY_BBH_DIR_NLO/Cards/run_card.dat
     MY_BBH_DIR_LO/Cards/run_card.dat
+
+    MY_BBH_DIR_NLO/Cards/param_card.dat
+    MY_BBH_DIR_LO/Cards/param_card.dat
+
+    MY_BBH_DIR_NLO/Cards/proc_card_mg5.dat
+    MY_BBH_DIR_LO/Cards/proc_card_mg5.dat
+
 
 And generate:
 
@@ -46,6 +53,10 @@ Prepare LHE file:
     cmsDriver.py MCDBtoEDM --conditions START53_V19::All -s NONE --eventcontent RAWSIM --datatier GEN --filein file:LHE/bbH_LO.lhe --fileout /tmp/amassiro/prova.root -n -1
     cmsDriver.py MCDBtoEDM --conditions START53_V19::All -s NONE --eventcontent RAWSIM --datatier GEN --filein file:LHE/bbH_LO.lhe --fileout /tmp/amassiro/prova2.root -n -1
 
+    cmsDriver.py MCDBtoEDM --conditions START53_V19::All -s NONE --eventcontent RAWSIM --datatier GEN --filein file:/tmp/amassiro/unweighted_events.lhe      --fileout /tmp/amassiro/prova_bbH_unweighted.root -n -1
+    
+
+    
 Run GEN-SIM:
 NB: the decay python config file should be in a dedicated folder, otherwise errors!
 
