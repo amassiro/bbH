@@ -39,6 +39,7 @@ LHADF
 
 Install pdf before:
 
+    wget http://www.hepforge.org/archive/lhapdf/lhapdf-5.9.1.tar.gz
     sudo lhapdf-getdata MSTW2008nlo68cl
     
 
