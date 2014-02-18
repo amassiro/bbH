@@ -32,6 +32,14 @@ Then modify the card to have the correct center of mass energy
 And generate:
 
     launch
+
+    
+LHADF
+=======
+
+Install pdf before:
+
+    sudo lhapdf-getdata MSTW2008nlo68cl
     
 
 Decay & hadronize
