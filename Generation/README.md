@@ -42,6 +42,13 @@ Install pdf before:
     wget http://www.hepforge.org/archive/lhapdf/lhapdf-5.9.1.tar.gz
     sudo lhapdf-getdata MSTW2008nlo68cl
     
+if you are in an /afs/ area instead do:
+    
+     export LHAPDFSYS=/afs/cern.ch/sw/lcg/external/MCGenerators/lhapdf/5.8.8/x86_64-slc5-gcc46-opt/
+     export PATH=${PATH}:${LHAPDFSYS}/bin 
+     export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${LHAPDFSYS}/lib
+     LHAPATH=/afs/cern.ch/cms/slc5_amd64_gcc462/external/lhapdf/5.8.5-cms2/share/lhapdf/PDFsets/
+    
 
 Decay & hadronize
 =======
