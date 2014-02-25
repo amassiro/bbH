@@ -4,7 +4,8 @@ Generation with MG of the signal
 Instructions from:
 
     https://launchpad.net/madgraph5
-
+    (check that gfortran is installed, otherwise mg5_aMC doesn't work: sudo apt-get install gfortran)
+    
 Process:
 
     generate p p > b b~ h [QCD]
