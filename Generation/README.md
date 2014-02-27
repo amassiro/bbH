@@ -34,6 +34,10 @@ And generate:
 
     launch
 
+LHE files:
+
+    /afs/cern.ch/work/b/bmarzocc/public/xMassiro/bbH_NLO_scaleON_10mila.lhe
+
     
 LHADF
 =======
