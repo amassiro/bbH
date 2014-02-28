@@ -36,7 +36,7 @@ And generate:
 
 LHE files:
 
-    /afs/cern.ch/work/b/bmarzocc/public/xMassiro/bbH_NLO_scaleON_10mila.lhe
+    /afs/cern.ch/work/b/bmarzocc/public/xMassiro/bbH_mg5_aMC_NLO/bbH_NLO_scaleOFF_10mila_1.lhe
 
     
 LHADF
