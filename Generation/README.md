@@ -30,9 +30,15 @@ Then modify the card to have the correct center of mass energy
     MY_BBH_DIR_LO/Cards/proc_card_mg5.dat
 
 
-And generate:
+Generate:
 
     launch
+
+And generate in the same output_dir after the first time:
+
+    cd output_dir # eg: cd MY_BBH_DIR_NLO
+    ./bin/generate_events # make a new grid
+    ./bin/generate_events -o # use old grid
 
 LHE files:
 
