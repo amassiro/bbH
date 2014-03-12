@@ -1,6 +1,8 @@
 //****************************************************************************************************************************
 
-//g++ -Wall -o Decay_Hgg.exe `pythia8-config --cxxflags --libs --ldflags` -I /afs/cern.ch/sw/lcg/external/HepMC/2.06.08/x86_64-slc5-gcc46-opt/include/ -L /afs/cern.ch/sw/lcg/external/HepMC/2.06.08/x86_64-slc5-gcc46-opt/lib -lHepMC -lpythia8tohepmc Decay_Hgg.cpp
+// on slc6: compile with -----> c++ -O2 -ansi -pedantic -W -Wall -I /afs/cern.ch/sw/lcg/external/HepMC/2.06.08/x86_64-slc6-gcc46-opt/include/ -L /afs/cern.ch/sw/lcg/external/HepMC/2.06.08/x86_64-slc6-gcc46-opt/lib -lHepMC -lpythia8tohepmc `pythia8-config --cxxflags --libs --ldflags` -o Decay_Hgg.exe Decay_Hgg.cpp
+
+// on slc5: compile with -----> g++ -Wall -o Decay_Hgg.exe `pythia8-config --cxxflags --libs --ldflags` -I /afs/cern.ch/sw/lcg/external/HepMC/2.06.08/x86_64-slc5-gcc46-opt/include/ -L /afs/cern.ch/sw/lcg/external/HepMC/2.06.08/x86_64-slc5-gcc46-opt/lib -lHepMC -lpythia8tohepmc Decay_Hgg.cpp
 
 //****************************************************************************************************************************
 
