@@ -120,7 +120,7 @@ open(SAMPLEJOBLISTFILE, ">", $sampleJobListFile);
         $command = "source setup_slc5.csh";
 	print SAMPLEJOBFILE $command."\n";
      
-        $command = "./".$ProgramName.".exe ".$INPUTFILEName." ".$OUTPUTFILEName."_".$jobIt.".lhe ".$FIRSTEVENT." ".$LASTEVENT;
+        $command = "./".$ProgramName.".exe ".$INPUTFILEName." ".$OUTPUTFILEName."_".$jobIt.".lhe ".$FIRSTEVENT." ".$LASTEVENT." ".$jobIt;
 	print SAMPLEJOBFILE $command."\n";
 	
 
