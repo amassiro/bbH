@@ -36,6 +36,8 @@ int main(int argc, char **argv)
     if (argc >= 4) startEntry = atoi(argv[3]);
     int endEntry = -1;
     if (argc >= 5) endEntry   = atoi(argv[4]);
+    char* SEED = "1";
+    if (argc >= 6) SEED = argv[5];
 
     std::cout << "Start-Entry = " << startEntry << std::endl;
     std::cout << "End-Entry = " << endEntry << std::endl;
@@ -55,9 +57,12 @@ int main(int argc, char **argv)
 
     int nAbort = 2000000;
     int iAbort = 0;   
-
+   
+    std::string SeedString = "Random:seed = "+std::string(SEED);
+    std::cout << "SeedString = " << SeedString << std::endl;
+    
     pythia.readString("Random:setSeed = on");
-    pythia.readString("Random:seed = 1");
+    pythia.readString(SeedString.c_str());
      
     pythia.readString("25:m0 = 125");
      
