@@ -66,6 +66,9 @@ Decay & hadronize
 
 Where:
 
+    cmsmi5
+    /data2/amassiro/Generation/MG5/MG5_aMC_v2_0_1
+
     cmsneu
     /home/amassiro/Generation/CMSSW_5_3_9_patch3/src/LHE
     /home/amassiro/Generation/CMSSW_5_3_9_patch3/src/
