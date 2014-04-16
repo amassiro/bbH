@@ -42,7 +42,7 @@ And generate in the same output_dir after the first time:
 
 LHE files:
 
-    /afs/cern.ch/work/b/bmarzocc/public/xMassiro/bbH_mg5_aMC_NLO/
+    /afs/cern.ch/work/b/bmarzocc/public/xMassiro/
 
     
 LHADF
