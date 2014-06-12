@@ -6,8 +6,24 @@ Parton level analysis:
     compare distributions for signal and background
     setup a first ME method to distinguish bbH from tt
 
+Where:
+
+    /home/amassiro/Generation/CMSSW_5_3_14_patch2/src/bbH/LHEanalysis/
+
+
 Location of LHE events:
+====
+
+Signal LO:
 
     /afs/cern.ch/work/b/bmarzocc/public/xMassiro/bbH_mg5_aMC_LO/bbH_mg5_aMC_LO_100k.lhe
-    /TTJets TuneZ2star 8TeV-madgraph-tauola/Summer12-PU S7 START52 V9-v1
+
+Background:
+
+    /TTJets_MassiveBinDECAY_TuneZ2star_8TeV-madgraph-tauola/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM
+        /eos/cms/store/lhe/6721/
+
     /TTTo2L2Nu2B_8TeV-powheg-pythia6/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM
+
+    /TT_8TeV-mcatnlo/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM
+        /eos/cms/store/lhe/7424/ttb_8TeV_cteq6m.lhe
