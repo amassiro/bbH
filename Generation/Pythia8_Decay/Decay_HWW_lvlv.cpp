@@ -41,7 +41,7 @@ int main(int argc, char **argv)
 
     std::cout << "Start-Entry = " << startEntry << std::endl;
     std::cout << "End-Entry = " << endEntry << std::endl;
- 
+
     std::string namefile_in;
     namefile_in = argv[1];
     std::string namefile_out;
@@ -49,25 +49,32 @@ int main(int argc, char **argv)
     
     // Initialize Les Houches Event File run. List initialization information.
     Pythia pythia;    
-    pythia.readString("Beams:frameType = 4");                       
-    std::string sfile = "Beams:LHEF ="+namefile_in;    
+    pythia.readString("Beams:frameType = 4");
+    std::string sfile = "Beams:LHEF ="+namefile_in;
     pythia.readString("HadronLevel:Hadronize = off");
     pythia.readString("HadronLevel:all = off"); // On hadronization
-    pythia.readString(sfile.c_str());  
+//     pythia.readString("HadronLevel:all = on"); // generic hadronization settings
+    pythia.readString(sfile.c_str());
 
     int nAbort = 2000000;
-    int iAbort = 0;   
-   
+    int iAbort = 0;
+
     std::string SeedString = "Random:seed = "+std::string(SEED);
     std::cout << "SeedString = " << SeedString << std::endl;
-    
+
     pythia.readString("Random:setSeed = on");
     pythia.readString(SeedString.c_str());
-     
+
     pythia.readString("25:m0 = 125");
-     
+
+//     pythia.readString("SLHA:useDecayTable = off");
+//     pythia.readString("25:mWidth = 0.00407");
+//     pythia.readString("25:doForceWidth = true");
+
     pythia.readString("25:onMode = off");
-    pythia.readString("25:onIfMatch = 24 24"); 
+//     pythia.readString("25:onIfMatch = 4 4");
+    pythia.readString("25:onIfMatch = 13 13"); //---> mumu ... seriously??? Otherwise 25 is considered stable ... seriously?!?!?
+    pythia.readString("25:onIfMatch = 24 24");
 
     pythia.readString("24:onMode = off");
     pythia.readString("-24:onMode = off");
@@ -99,7 +106,7 @@ int main(int argc, char **argv)
          //---- subrange of events ----
          if (endEntry!=-1 && iEvent>=endEntry) break;
          if (iEvent >= startEntry){
-         
+
 //               std::cout<<" ievent = " << iEvent << std::endl;
              if (!(iEvent%500)) std::cout<<" ievent = " << iEvent << std::endl;
   
@@ -110,12 +117,12 @@ int main(int argc, char **argv)
                   if (pythia.info.atEndOfFile()) break;
 
                   // First few failures write off as "acceptable" errors, then quit.
-                  //if (++iAbort < nAbort) continue;
+                  if (++iAbort < nAbort) continue;
                   ++iAbort;
-                  //break;
+                  break;
              }
 
-  
+
             // Store event info in the LHAup object.
             myLHA.setEvent();
 
@@ -125,9 +132,9 @@ int main(int argc, char **argv)
 
             // End of event loop.
          }
-    
+
     }
-    
+
     // Write endtag. Overwrite initialization info with new cross sections.
     myLHA.closeLHEF(true);
 
