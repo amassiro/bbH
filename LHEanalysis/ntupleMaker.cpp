@@ -161,13 +161,6 @@ void myTree::fillTree(std::string fileNameLHE){
        reader.hepeup.PUP.at (iPart).at (3) // E
                           ) ;
 
-     smearVectorKeepMass(dummy,SmearJES); //---- smear jet energy scale
-
-     if (abs (reader.hepeup.IDUP.at (iPart)) != 5) {
-      //---- set massless quarks!
-      setMassLess(dummy);
-     }
-
      v_tlv_all_quarks.push_back (dummy) ;
     }
    }
