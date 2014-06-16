@@ -73,7 +73,7 @@ int main(int argc, char **argv)
 
     pythia.readString("25:onMode = off");
 //     pythia.readString("25:onIfMatch = 4 4");
-    pythia.readString("25:onIfMatch = 13 13"); //---> mumu ... seriously??? Otherwise 25 is considered stable ... seriously?!?!?
+    pythia.readString("25:onIfMatch = 11 11"); //---> ee ... seriously??? Otherwise 25 is considered stable ... seriously?!?!?
     pythia.readString("25:onIfMatch = 24 24");
 
     pythia.readString("24:onMode = off");
