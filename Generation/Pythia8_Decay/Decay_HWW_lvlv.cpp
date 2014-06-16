@@ -67,7 +67,7 @@ int main(int argc, char **argv)
     pythia.readString("25:m0 = 125");
      
     pythia.readString("25:onMode = off");
-    pythia.readString("25:onIfMatch = 34 -34"); 
+    pythia.readString("25:onIfMatch = 24 24"); 
 
     pythia.readString("24:onMode = off");
     pythia.readString("-24:onMode = off");
