@@ -28,6 +28,7 @@ Background:
         /eos/cms/store/lhe/6721/
 
     /TTTo2L2Nu2B_8TeV-powheg-pythia6/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM
+        /eos/cms/store/lhe/6723/
 
     /TT_8TeV-mcatnlo/Summer12_DR53X-PU_S10_START53_V7A-v1/AODSIM
         /eos/cms/store/lhe/7424/ttb_8TeV_cteq6m.lhe
@@ -43,3 +44,5 @@ Compile:
 to use:
 
     ./ntupleMaker.exe     /afs/cern.ch/work/a/amassiro/public/bbH/bbH_mg5_aMC_LO_100k_ww_lvlv.lhe    my.root
+
+background: /afs/cern.ch/work/a/amassiro/public/bbH/ttj_pow/*.lhe
