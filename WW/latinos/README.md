@@ -7,10 +7,17 @@ Create list of files
 
 hardcoded in skim.py.
 
-Then
+Then Step1
 
-    cd /home/amassiro/Latinos/ForGammaHiggsWW/CMSSW_5_3_11_patch6/src/WWAnalysis/SkimStep/test/
+    cd /home/amassiro/Latinos/CMSSW_5_3_11_patch6/src/WWAnalysis/SkimStep/test/
     cmsRun latinosYieldSkim.py.bbHww.py   print isMC=True globalTag=GR_R_52_V7  correctMetPhi=False    doNoFilter=True  outputFile=bbH_step1.root
+
+
+Step2+3
+
+    cd /home/amassiro/Latinos/CMSSW_5_3_11_patch6/src/WWAnalysis/AnalysisStep/test/step3/
+    cmsRun step3.py print inputFiles=file:/home/amassiro/Latinos/CMSSW_5_3_11_patch6/src/WWAnalysis/SkimStep/test/bbH_step1.root  label=bbHww id=3125  scale=1 outputFile=step3_bbHww.root doNoFilter=True
+
 
 
 Add variables
