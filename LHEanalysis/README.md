@@ -45,4 +45,9 @@ to use:
 
     ./ntupleMaker.exe     /afs/cern.ch/work/a/amassiro/public/bbH/bbH_mg5_aMC_LO_100k_ww_lvlv.lhe    my.root
 
-background: /afs/cern.ch/work/a/amassiro/public/bbH/ttj_pow/*.lhe
+background:
+
+    /afs/cern.ch/work/a/amassiro/public/bbH/ttj_pow/*.lhe
+    eos ls -alrth  /eos/cms/store/lhe/6723/
+    eos ls -alrth  /eos/cms/store/lhe/6723/ | awk '{print "eos cp /eos/cms/store/lhe/6723/"$9" /tmp/"}'
+    eos cp /eos/cms/store/lhe/6723/TTTo2L2Nu2B_CT10_8TeV-powheg_329639197.lhe
