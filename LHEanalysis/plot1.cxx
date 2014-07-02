@@ -1,4 +1,4 @@
-void A(std::string variable,std:: string variable1) //plotting the function
+void A(std::string variable,std:: string variable1) //plotting the function[signal]
 {
 TFile file("my.root","READ");
 TTree* tree=(TTree*)file .Get("tree");
