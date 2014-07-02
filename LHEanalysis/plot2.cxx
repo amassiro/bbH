@@ -1,4 +1,4 @@
-void B(std::string variable,std:: string variable1) //plotting the function
+void B(std::string variable,std:: string variable1) //plotting the function [background]
 {
 TFile file1("my1.root","READ");
 TTree* tree1=(TTree*)file1 .Get("tree");
