@@ -39,15 +39,20 @@ ntupleMaker
 
 Compile:
 
-    c++ -o ntupleMaker.exe `root-config --glibs --cflags` -lm ntupleMaker.cpp
+signal: c++ -o turza.exe `root-config --glibs --cflags` -lm ntupleMaker.cpp
+background: c++ -o hello.exe `root-config --glibs --cflags` -lm ntupleMaker.cpp
 
 to use:
 
-    ./ntupleMaker.exe     /afs/cern.ch/work/a/amassiro/public/bbH/bbH_mg5_aMC_LO_100k_ww_lvlv.lhe    my.root
+signal:   ./turza.exe     /afs/cern.ch/work/a/amassiro/public/bbH/bbH_mg5_aMC_LO_100k_ww_lvlv.lhe    my.root 
 
-background:
+background:   ./hello.exe     /afs/cern.ch/work/a/amassiro/public/bbH/ttj_pow/TTTo2L2Nu2B_CT10_8TeV-powheg_329639198.lhe    my1.root
 
     /afs/cern.ch/work/a/amassiro/public/bbH/ttj_pow/*.lhe
     eos ls -alrth  /eos/cms/store/lhe/6723/
     eos ls -alrth  /eos/cms/store/lhe/6723/ | awk '{print "eos cp /eos/cms/store/lhe/6723/"$9" /tmp/"}'
     eos cp /eos/cms/store/lhe/6723/TTTo2L2Nu2B_CT10_8TeV-powheg_329639197.lhe
+
+
+
+
