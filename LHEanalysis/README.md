@@ -65,6 +65,6 @@ plotsbnormalized.cxx -> This code runs to create plot of signal and background n
 
 plotsbnormalizedxsec.cxx -> This code runs to create plot of signal and background normalized to cross-section
 
-spurselikelihood.cxx -> This code runs to create a spurse object, create signal and background, and alos create Likelihood ration from that.
+spurselikelihood.cxx -> This code runs to create a spurse object, create signal and background, and alos create Likelihood ratio from that.
 
 ntupleMaker.cpp -> To compile/run signal and background use the above commands. The data for signal and background are saved in a ROOT file named my.root and my1.root respectively
