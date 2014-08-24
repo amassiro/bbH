@@ -55,4 +55,12 @@ background:   ./hello.exe     /afs/cern.ch/work/a/amassiro/public/bbH/ttj_pow/TT
 
 
 
+code description[Mir Mehedi Faruk]
 
+
+
+lr.cxx -> This code runs to create plot of signal and background variable along with likelihood ratio. (does not use THnSparse)
+plotsbnormalized.cxx -> This code runs to create plot of signal and background normalized to 1
+plotsbnormalizedxsec.cxx -> This code runs to create plot of signal and background normalized to cross-section
+spurselikelihood.cxx -> This code runs to create a spurse object, create signal and background, and alos create Likelihood ration from that.
+ntupleMaker.cpp -> To compile/run signal and background use the above commands. The data for signal and background are saved in a ROOT file named my.root and my1.root respectively
