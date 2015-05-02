@@ -1,6 +1,14 @@
 Latinos instructions
 ====
 
+
+Example of sample at step3:
+
+    /afs/cern.ch/user/a/amassiro/work/Latinos/Framework/CMSSW_5_3_11_patch6/src/WWAnalysis/AnalysisStep/test/step3
+
+
+
+
 Create list of files
 
     eos ls /eos/cms/store/user/amassiro/Latinos/gg2vv/Hw25_SigOnPeak_8TeV/ | awk '{print "   @/eos/cms/store/user/amassiro/Latinos/gg2vv/Hw25_SigOnPeak_8TeV/"$1"@,"}' | tr "@" "'"
