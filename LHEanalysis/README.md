@@ -43,12 +43,22 @@ Where:
     
 Compile:
 
-    c++ -o ntupleMaker.exe `root-config --glibs --cflags`  ntupleMaker.cpp
+    c++ -o ntupleMaker.exe `root-config --glibs --cflags`  -lm ntupleMaker.cpp   `root-config --libs`
     
+Run:
+
+    ./ntupleMaker.exe     bbH_mg5_aMC_LO_100k.lhe     bbH_mg5_aMC_LO_100k.lhe.root
 
 
+Draw:
 
-
+    r00t  bbH_mg5_aMC_LO_100k.lhe.root
+    tree = (TTree*) _file0 -> Get ("tree")
+    tree->Draw ("bjeteta1 >> h1")
+    tree->Draw ("bjeteta2 >> h1")
+    h1->Draw("")
+    
+    
 
 
 
