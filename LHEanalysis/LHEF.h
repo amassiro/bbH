@@ -518,7 +518,7 @@ class Reader {
   * Used internally to read a single line from the stream.
    */
   bool getline() {
-   return ( std::getline(file, currentLine) );
+   return bool( std::getline(file, currentLine) );
   }
 
  protected:

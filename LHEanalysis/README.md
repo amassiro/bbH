@@ -37,6 +37,24 @@ Background:
 ntupleMaker
 ====
 
+Where:
+
+    /home/amassiro/Cern/Code/bbH/bbH/LHEanalysis
+    
+Compile:
+
+    c++ -o ntupleMaker.exe `root-config --glibs --cflags`  ntupleMaker.cpp
+    
+
+
+
+
+
+
+
+
+
+
 Compile:
 
 signal: c++ -o turza.exe `root-config --glibs --cflags` -lm ntupleMaker.cpp
