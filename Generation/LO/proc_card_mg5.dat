@@ -8,7 +8,7 @@
 #*                *                       *                 *
 #*                                                          *
 #*                                                          *
-#*         VERSION 2.0.2                 2014-02-07         *
+#*         VERSION 2.6.1                 2017-12-12         *
 #*                                                          *
 #*    The MadGraph5_aMC@NLO Development Team - Find us at   *
 #*    https://server06.fynu.ucl.ac.be/projects/madgraph     *
@@ -20,11 +20,13 @@
 #*     run as ./bin/mg5_aMC  filename                       *
 #*                                                          *
 #************************************************************
-
 set group_subprocesses Auto
 set ignore_six_quark_processes False
+set loop_optimized_output True
+set loop_color_flows False
 set gauge unitary
 set complex_mass_scheme False
+set max_npoint_for_channel 0
 import model sm
 define p = g u c d s u~ c~ d~ s~
 define j = g u c d s u~ c~ d~ s~
@@ -33,4 +35,4 @@ define l- = e- mu-
 define vl = ve vm vt
 define vl~ = ve~ vm~ vt~
 generate p p > b b~ h
-output bbH_MY_DIR_LO
+output MY_BBH_DIR_LO

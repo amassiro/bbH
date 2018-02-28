@@ -8,6 +8,8 @@ Instructions from:
     
 Process:
 
+    ./bin/mg5_aMC
+    
     generate p p > b b~ h [QCD]
     generate p p > b b~ h
 
@@ -16,6 +18,8 @@ Process:
     output MY_BBH_DIR_NLO
     output MY_BBH_DIR_LO
 
+    quit
+    
 It compiles the code!
 
 Then modify the card to have the correct center of mass energy
@@ -34,12 +38,25 @@ Generate:
 
     launch
 
+    cd MY_BBH_DIR_LO
+    ./bin/generate_events
+    5
+    0
+    0
+
 And generate in the same output_dir after the first time:
 
     cd output_dir # eg: cd MY_BBH_DIR_NLO
     ./bin/generate_events # make a new grid
     ./bin/generate_events -o # use old grid
 
+    
+Untar:
+
+    cd MY_BBH_DIR_LO/Events/run_01/
+    gunzip unweighted_events.lhe.gz
+    
+    
 LHE files:
 
     /afs/cern.ch/work/b/bmarzocc/public/xMassiro/

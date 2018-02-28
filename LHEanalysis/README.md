@@ -49,6 +49,9 @@ Run:
 
     ./ntupleMaker.exe     bbH_mg5_aMC_LO_100k.lhe     bbH_mg5_aMC_LO_100k.lhe.root
 
+    ./ntupleMaker.exe     ../Generation/MG5_aMC_v2_6_1/MY_BBH_DIR_LO/Events/run_01/unweighted_events.lhe      bbH_mg5_aMC_LO_13TeV_10k.lhe.root
+    ./ntupleMaker.exe     ../Generation/MG5_aMC_v2_6_1/MY_BBH_DIR_LO/Events/run_02/unweighted_events.lhe      bbH_mg5_aMC_LO_13TeV_100k.lhe.root
+
 
 Draw:
 
